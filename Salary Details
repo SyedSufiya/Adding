@@ -1,0 +1,463 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO7IowzfJy9ZmPcVsKXXJ8U",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/SyedSufiya/Adding/blob/main/Salary%20Details\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Different ML algorithms"
+      ],
+      "metadata": {
+        "id": "ICO1MzySMs9m"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "4A9mlSDlMA0S"
+      },
+      "outputs": [],
+      "source": [
+        "# step1:import library\n",
+        "import pandas as pd"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# step2:import data\n",
+        "salary = pd.read_csv('https://github.com/YBI-Foundation/Dataset/raw/main/Salary%20Data.csv')"
+      ],
+      "metadata": {
+        "id": "WSku6TbWMG8V"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "salary.head()"
+      ],
+      "metadata": {
+        "id": "vKTvK0S3MHfi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "salary.info()"
+      ],
+      "metadata": {
+        "id": "b9PXeOV5MHkI"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "salary.describe()"
+      ],
+      "metadata": {
+        "id": "FUJpaBksMHoa"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "salary.columns"
+      ],
+      "metadata": {
+        "id": "NHkr6TAJPBN_"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "salary.shape"
+      ],
+      "metadata": {
+        "id": "jgc4oblRMHs7"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "AI is like human when you want to do like human we use AI\n",
+        "ML objective is to perdict,estimation,forecast something\n",
+        "Deep learning is Same as ML objective but by using artificial neural N/W"
+      ],
+      "metadata": {
+        "id": "GHyQ5OHwP4zr"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "ML is of 2 types\n",
+        "i)supervised\n",
+        "ii)unsupervised\n",
+        "supervised is of two types\n",
+        "i)regrssion\n",
+        "ii)classification\n",
+        "y=continous -> regression problem\n",
+        "y=categorical-> classification problem\n"
+      ],
+      "metadata": {
+        "id": "zdPfE2__QzJ9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#step3 = define target(y dependentvariable to be predicted) and features (x independent variable used to predict the varable y)"
+      ],
+      "metadata": {
+        "id": "jLov5XKXPZpf"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "salary.columns\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PxZFpdjwiLri",
+        "outputId": "8d104f3b-34d5-4c46-c5e5-527395ef4a6d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Index(['Experience Years', 'Salary'], dtype='object')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#finding Y->salar dependent  on experience so we find it or predict it using x independent variable experience ,salary is continous variable it is regression problem"
+      ],
+      "metadata": {
+        "id": "PkL78YjIlKfY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y = salary['Salary']\n",
+        "x = salary[['Experience Years']]\n",
+        "#for deoendent use single bracket\n",
+        "#for independent variable use doouble bracket\n",
+        "# x is column variable\n",
+        "# y is row variable"
+      ],
+      "metadata": {
+        "id": "slmqACWAiLtP"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "salary.shape"
+      ],
+      "metadata": {
+        "id": "fBKENv_diL8B"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x.shape"
+      ],
+      "metadata": {
+        "id": "9ZrO-qRQmUj8"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "y-Up8qPYUmtJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y.shape"
+      ],
+      "metadata": {
+        "id": "6OTx_tg7mVGL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "scikit-learning  library is python's library used for ML\n",
+        "used for caluculations of classification,regression and clustering which is unsupervised learning problem\n",
+        "We import anything from SKlearn library we follow as follows\n",
+        "\"from sklearn.module import particular function"
+      ],
+      "metadata": {
+        "id": "OGrMpA_9UoKX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#step4:train test split i.e splitting the data"
+      ],
+      "metadata": {
+        "id": "tuiNsofGUgJg"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.model_selection import train_test_split"
+      ],
+      "metadata": {
+        "id": "Xt57zIk5Yw5e"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x_train,x_test,y_train,y_test=train_test_split(x,y,random_state=2529)"
+      ],
+      "metadata": {
+        "id": "x9gKfgDDYwPB"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x_train.shape,x_test.shape,y_train.shape,y_test.shape"
+      ],
+      "metadata": {
+        "id": "wg3dvEZoYyKH"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#step5:Model"
+      ],
+      "metadata": {
+        "id": "HKFyQO3IYyHP"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We go with predictive modeling as we predict the salary based on experience\n",
+        "The dots in the prediction is ur actual data\n",
+        "Linear regression is all abt fitting a line which i.e a straight line only not a curve\n",
+        "Error=y actual-y predicted\n",
+        ",the error may be +ve and -ve.The best fit line is that if we square all the errors and add up then the value should be minimum.\n",
+        "In maths regression is caluculated as line equation Y=mx+c"
+      ],
+      "metadata": {
+        "id": "ylH1W16bmn_O"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.linear_model import LinearRegression\n",
+        "model=LinearRegression()"
+      ],
+      "metadata": {
+        "id": "7ZPeqgx_YyEJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#step6:train model(fit model) this the ML step te above all the steps are for preparing data sets\n",
+        "model.fit(x_train,y_train)  #.fit is a function"
+      ],
+      "metadata": {
+        "id": "hnszIsxKqi87"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "model.intercept_"
+      ],
+      "metadata": {
+        "id": "-6MIks2Yqib2"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "model.coef_"
+      ],
+      "metadata": {
+        "id": "Qw1qnaJuscUZ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#salary=25643.0+9469*experience+error\n",
+        "#if experience is 0 then salary is 25643"
+      ],
+      "metadata": {
+        "id": "F1wwnFpLsb3s"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#step7:Prediction(syntax:command.predict\n",
+        ")\n",
+        "y_pred=model.predict(x_test)"
+      ],
+      "metadata": {
+        "id": "j31P6f6gtnA2"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x_test"
+      ],
+      "metadata": {
+        "id": "hZH5xW84tmd8"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#step8:Accuracy of the model\n",
+        "#yact   ypredicted    Error    Error^2\n",
+        "20         21          -1         1\n",
+        "20         19          1          1\n",
+        "# we caluculate mean for accuraccy"
+      ],
+      "metadata": {
+        "id": "l5gtc9NUtmGP"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.metrics import mean_absolute_percentage_error"
+      ],
+      "metadata": {
+        "id": "BSXUxFdSuiwx"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "mean_absolute_percentage_error(y_test,y_pred)"
+      ],
+      "metadata": {
+        "id": "mSX494CvuiQU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Error is abt 6% and accuracy is 100%-6%=94%"
+      ],
+      "metadata": {
+        "id": "Qfbw95D1wXUB"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "DgvXQEQdYv5D"
+      }
+    }
+  ]
+}
